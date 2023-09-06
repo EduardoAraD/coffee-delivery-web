@@ -12,7 +12,9 @@ export function Header() {
 
   return (
     <ContainerHeader>
-      <img src={logo} alt="" />
+      <NavLink to="/">
+        <img src={logo} alt="" />
+      </NavLink>
       <div>
         <div>
           <MapPin weight="fill" color={PURPLE_DARK} size={22} />
