@@ -3,9 +3,10 @@ import { Clock, Coffee, Package, ShoppingCart } from 'phosphor-react'
 import { CardCoffee } from '../../components/CardCoffee'
 import { IconLabel } from '../../components/IconLabel'
 
+import { Coffees } from '../../services/coffees'
+
 import { ContainerHome } from './styles'
 import CoffeeImage from '../../assets/coffee.png'
-import { Coffees } from '../../services/coffees'
 
 export function Home() {
   return (

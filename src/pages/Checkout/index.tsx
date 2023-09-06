@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import {
   Bank,
   CreditCard,
@@ -5,6 +6,8 @@ import {
   MapPinLine,
   Money,
 } from 'phosphor-react'
+
+import { useShoppingCart } from '../../hooks/ShoppingCart'
 
 import { Button } from '../../components/Button'
 import { ButtonWithIcon } from '../../components/ButtonWithIcon'
@@ -17,6 +20,20 @@ import { TitleContent } from '../../components/TitleContent'
 import { CheckoutContainer, Line } from './styles'
 
 export function Checkout() {
+  const { shoppingCart } = useShoppingCart()
+
+  const initialValue = 0
+  const priceAllItens = shoppingCart.reduce(
+    (accumulate, itemShop) =>
+      accumulate + itemShop.amount * itemShop.coffee.price,
+    initialValue,
+  )
+
+  const priceDelivery = 3.5
+  const priceTotal = priceAllItens + priceDelivery
+
+  const disabledButton = shoppingCart.length === 0
+
   return (
     <CheckoutContainer>
       <form>
@@ -66,18 +83,18 @@ export function Checkout() {
           <TitleContent title="Cafés selecionados">
             <div className="contentForm">
               <div className="itensPrice">
-                <CardItemCoffee />
-                <Line />
-                <CardItemCoffee />
-                <Line />
-                <CardItemCoffee />
-                <Line />
+                {shoppingCart.map((item) => (
+                  <Fragment key={item.coffee.id}>
+                    <CardItemCoffee itemCoffee={item} />
+                    <Line />
+                  </Fragment>
+                ))}
                 <div className="infoPrice">
-                  <LabelPrice label="Total de Itens" price={19.8} />
-                  <LabelPrice label="Entrega" price={1.5} />
-                  <LabelPrice label="Total" price={21.3} bolder />
+                  <LabelPrice label="Total de Itens" price={priceAllItens} />
+                  <LabelPrice label="Entrega" price={priceDelivery} />
+                  <LabelPrice label="Total" price={priceTotal} bolder />
                 </div>
-                <Button title="CONFIRMAR PEDIDO" />
+                <Button title="CONFIRMAR PEDIDO" disabled={disabledButton} />
               </div>
             </div>
           </TitleContent>
