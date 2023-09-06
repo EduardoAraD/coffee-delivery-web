@@ -3,8 +3,10 @@ import { useTheme } from 'styled-components'
 
 import { DivIconColorsProps, IconLabelContainer } from './styles'
 
+export type TypeIconProps = React.FC<IconProps>
+
 interface Props {
-  icon: React.FC<IconProps>
+  icon: TypeIconProps
   text: string
   colorType: DivIconColorsProps
 }
