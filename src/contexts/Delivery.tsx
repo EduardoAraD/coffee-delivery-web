@@ -38,6 +38,7 @@ export function DeliveryProvider({ children }: DeliveryProviderProps) {
       city: '',
       district: '',
       complement: '',
+      uf: '',
     },
     estimatedTime: '',
     payment: 'Money',
