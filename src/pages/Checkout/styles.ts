@@ -48,10 +48,10 @@ export const CheckoutContainer = styled.div`
       gap: 0.5rem;
     }
 
-    #curt {
+    .form-curt {
       max-width: 200px;
     }
-    #x-curt {
+    .form-x-curt {
       max-width: 60px;
     }
   }

@@ -70,7 +70,12 @@ export const CardContainer = styled.div`
 
         transition: 0.2s;
 
-        &:hover {
+        &:disabled {
+          cursor: not-allowed;
+          opacity: 0.7;
+        }
+
+        &:not(:disabled):hover {
           background-color: ${({ theme }) => theme.colors.PURPLE};
         }
       }

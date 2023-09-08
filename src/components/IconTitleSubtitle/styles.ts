@@ -3,7 +3,7 @@ import { styled } from 'styled-components'
 export type IconColorType = 'YELLOW_DARK' | 'PURPLE'
 
 interface Props {
-  colorIcon: IconColorType
+  iconcolor: IconColorType
 }
 
 export const IconTitleSubtitleContainer = styled.div<Props>`
@@ -11,7 +11,7 @@ export const IconTitleSubtitleContainer = styled.div<Props>`
   gap: 0.5rem;
 
   svg {
-    color: ${({ theme, colorIcon }) => theme.colors[colorIcon]};
+    color: ${({ theme, iconcolor }) => theme.colors[iconcolor]};
   }
   p {
     color: ${({ theme }) => theme.colors.BASE_SUBTITLE};

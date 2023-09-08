@@ -1,11 +1,24 @@
 import { Clock, CurrencyDollar, MapPin } from 'phosphor-react'
 
+import { useDelivery } from '../../hooks/Delivery'
+
 import { ItemIcon } from './components/ItemIcon'
 
 import motoboySvg from '../../assets/motoboy.svg'
 import { SuccessContainer } from './styles'
 
 export function Success() {
+  const {
+    delivery: { address, estimatedTime, payment },
+  } = useDelivery()
+
+  const paymentText =
+    payment === 'CreditCart'
+      ? 'Cartão de Crédito'
+      : payment === 'Bank'
+      ? 'Cartão de Débito'
+      : 'Dinheiro'
+
   return (
     <SuccessContainer>
       <h1>Uhu! Pedido confirmado</h1>
@@ -15,20 +28,25 @@ export function Success() {
           <div>
             <ItemIcon icon={MapPin} colorIcon="PURPLE">
               <p>
-                Entrega em <b>Rua Entrega em Rua João Daniel Martinelli, 102</b>
+                Entrega em{' '}
+                <b>
+                  {address.street}, {address.number}
+                </b>
               </p>
-              <p>Farrapos - Porto Alegre, RS</p>
+              <p>
+                {address.district} - {address.city}, {address.uf}
+              </p>
             </ItemIcon>
             <ItemIcon icon={Clock} colorIcon="YELLOW">
               <p>Previsão de Entrega</p>
               <p>
-                <b>20min - 30min</b>
+                <b>{estimatedTime}</b>
               </p>
             </ItemIcon>
             <ItemIcon icon={CurrencyDollar} colorIcon="YELLOW_DARK">
               <p>Pagamento na entrega</p>
               <p>
-                <b>Cartão de Crédito</b>
+                <b>{paymentText}</b>
               </p>
             </ItemIcon>
           </div>

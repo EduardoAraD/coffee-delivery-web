@@ -33,9 +33,11 @@ export function CardCoffee({ coffee }: Props) {
   }
 
   function handleNewProductInShoppingCart() {
-    createNewItemShoppingCart(coffee, qtdCoffee)
+    if (qtdCoffee > 0) {
+      createNewItemShoppingCart(coffee, qtdCoffee)
 
-    setQtdCoffee(0)
+      setQtdCoffee(0)
+    }
   }
 
   return (
@@ -65,6 +67,7 @@ export function CardCoffee({ coffee }: Props) {
           <button
             className="submit"
             type="button"
+            disabled={qtdCoffee <= 0}
             onClick={handleNewProductInShoppingCart}
           >
             <ShoppingCart weight="fill" size={22} color={WHITE} />

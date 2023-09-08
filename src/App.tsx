@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { Router } from './routes'
 
+import { DeliveryProvider } from './contexts/Delivery'
 import { ShoppingCartProvider } from './contexts/ShoppingCart'
 
 import { GlobalStyle } from './styles/global'
@@ -13,7 +14,9 @@ export function App() {
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
         <ShoppingCartProvider>
-          <Router />
+          <DeliveryProvider>
+            <Router />
+          </DeliveryProvider>
         </ShoppingCartProvider>
       </BrowserRouter>
       <GlobalStyle />

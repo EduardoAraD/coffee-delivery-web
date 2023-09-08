@@ -7,7 +7,7 @@ export type DivIconColorsProps =
   | 'BASE_TEXT'
 
 interface IconLabelDivColorProps {
-  colorType: DivIconColorsProps
+  colortype: DivIconColorsProps
 }
 
 export const IconLabelContainer = styled.div<IconLabelDivColorProps>`
@@ -25,7 +25,7 @@ export const IconLabelContainer = styled.div<IconLabelDivColorProps>`
     align-items: center;
     justify-content: center;
 
-    background-color: ${({ theme, colorType }) => theme.colors[colorType]};
+    background-color: ${({ theme, colortype }) => theme.colors[colortype]};
   }
 
   p {

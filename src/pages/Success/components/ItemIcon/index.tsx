@@ -12,7 +12,7 @@ interface Props {
 
 export function ItemIcon({ icon: Icon, children, colorIcon }: Props) {
   return (
-    <ItemIconContainer colorIcon={colorIcon}>
+    <ItemIconContainer iconcolor={colorIcon}>
       <div className="icon">
         <Icon size={16} weight="fill" />
       </div>

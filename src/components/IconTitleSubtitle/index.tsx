@@ -16,7 +16,7 @@ export function IconTitleSubtitle({
   colorIcon,
 }: Props) {
   return (
-    <IconTitleSubtitleContainer colorIcon={colorIcon}>
+    <IconTitleSubtitleContainer iconcolor={colorIcon}>
       <Icon size={22} />
       <div>
         <p>{title}</p>

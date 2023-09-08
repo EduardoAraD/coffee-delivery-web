@@ -17,7 +17,7 @@ export function IconLabel({ icon: Icon, text, colorType }: Props) {
   } = useTheme()
 
   return (
-    <IconLabelContainer colorType={colorType}>
+    <IconLabelContainer colortype={colorType}>
       <div>
         <Icon weight="fill" size={16} color={WHITE} />
       </div>

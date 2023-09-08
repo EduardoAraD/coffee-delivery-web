@@ -3,7 +3,7 @@ import { styled } from 'styled-components'
 export type IconColorStyleProps = 'YELLOW' | 'YELLOW_DARK' | 'PURPLE'
 
 interface IconColorProps {
-  colorIcon: IconColorStyleProps
+  iconcolor: IconColorStyleProps
 }
 
 export const ItemIconContainer = styled.div<IconColorProps>`
@@ -20,7 +20,7 @@ export const ItemIconContainer = styled.div<IconColorProps>`
     justify-content: center;
     align-items: center;
 
-    background-color: ${({ theme, colorIcon }) => theme.colors[colorIcon]};
+    background-color: ${({ theme, iconcolor }) => theme.colors[iconcolor]};
 
     svg {
       color: ${({ theme }) => theme.colors.WHITE};

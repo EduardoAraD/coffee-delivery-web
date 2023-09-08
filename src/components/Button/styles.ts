@@ -16,7 +16,12 @@ export const ButtonContainer = styled.button`
   cursor: pointer;
   transition: 0.2s;
 
-  &:hover {
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
     background-color: ${({ theme }) => theme.colors.YELLOW_DARK};
   }
 
